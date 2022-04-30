@@ -14,25 +14,25 @@ class ResultViewController: UIViewController {
     
     
     var answersChosenResults: [Answer]!
-    var animalsDict: [Animal: Int]!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        self.navigationItem.setHidesBackButton(true, animated: true)
+        self.navigationItem.setHidesBackButton(true, animated: false)
+        updateUI()
+    }
+    
+    private func updateUI() {
         let youAre = findMostCommonAnimal()
-        
         whoAreYou.text = "Вы - \(youAre.rawValue)"
         animalDescription.text = youAre.definition
-        
-        // Do any additional setup after loading the view.
     }
     
     private func findMostCommonAnimal() -> Animal {
+        var animalsDict: [Animal: Int]!
         animalsDict = answersChosenResults.reduce(into: [:]) { counts, answer in
             counts[answer.animal, default: 0] += 1
         }
-        let commonAnimal = animalsDict.first(where: { $0.value == animalsDict.values.max() })?.key ?? .pig
+        let commonAnimal = animalsDict.first(where: { $0.value == animalsDict.values.max() })?.key ?? .horse
         return commonAnimal
     }
 }
