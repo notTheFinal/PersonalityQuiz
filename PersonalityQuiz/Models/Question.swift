@@ -16,7 +16,7 @@ struct Question {
                      answers: [
                         Answer(title: "Трава", animal: .cow),
                         Answer(title: "Корма", animal: .horse),
-                        Answer(title: "Все что дают", animal: .cow),
+                        Answer(title: "Все что дают", animal: .pig),
                         Answer(title: "Овощи и фрукты", animal: .monkey)
                      ],
                      type: .single
@@ -25,7 +25,7 @@ struct Question {
                      answers: [
                         Answer(title: "Пастись на лугу", animal: .cow),
                         Answer(title: "Бегать", animal: .horse),
-                        Answer(title: "Купаться в грязи", animal: .cow),
+                        Answer(title: "Купаться в грязи", animal: .pig),
                         Answer(title: "Лазать по деревьям", animal: .monkey)
                      ],
                      type: .multiple
@@ -64,13 +64,13 @@ enum Animal: Character {
     var definition: String {
         switch self {
         case .cow:
-            return "Ты коровка"
+            return "Вы коровка"
         case .horse:
-            return "Ты лошадка"
+            return "Вы лошадка"
         case .pig:
-            return "Ты свинка"
+            return "Вы свинка"
         case .monkey:
-            return "Ты обезьянка"
+            return "Вы обезьянка"
         }
     }
 }
